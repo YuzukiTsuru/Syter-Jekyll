@@ -1,0 +1,13 @@
+<div class="entry-shang text-center">
+    <button onclick="ZanShang()" class="zs show-zs btn_zs btn-bred">赞赏</button>
+</div>
+<div class="zs-model-body">
+    <img class="imgAmi" src="{{ '/assets/img/wepay.jpeg' | relative_url }}">
+    <img class="imgAmi" src="{{ '/assets/img/alipay.jpeg' | relative_url }}">
+</div>
+
+<script>
+    function ZanShang() {
+        $(".imgAmi").fadeIn(300);
+    }
+</script>

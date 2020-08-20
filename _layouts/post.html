@@ -1,0 +1,137 @@
+---
+layout: default
+---
+{% include header.html %}
+<header
+  class="g-banner post-header {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }} {% unless page.cover %}post-no-cover{% endunless %}"
+  data-theme="{{ site.theme-color }}">
+  <div class="post-wrapper">
+    <div class="post-tags">
+      {% if page.tags.size > 0 %}
+      {% for tag in page.tags  %}
+      <a href="{{ '/page/tags.html#' | append: tag | relative_url }}" class="post-tag">{{ tag }}</a>
+      {% endfor %}
+      {% endif %}
+    </div>
+    <h1>{{ page.title }}</h1>
+    <div class="post-meta">
+      <div id="IfOld" style="display: none">
+        <p class="badge badge-pill text-danger border border-danger IfOld">
+          你现在看到的文章是在{{ page.date | date: '%Y' }}年完成的，距离现在
+          <script>
+            let date = new Date;
+            let year = date.getFullYear();
+            document.write(year);
+          </script>
+          已经有一段时间了，可能出现图片缺失等情况，请注意内容在现在的环境中是否还适用！内容仅供参考！
+        </p>
+      </div>
+      <span class="post-meta-item"><i
+          class="iconfont icon-author"></i>{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</span>
+      <time class="post-meta-item" datetime="{{ page.date | date:'%y-%m-%d' }}"><i
+          class="iconfont icon-date"></i>{{ page.date | date_to_string }}</time>
+    </div>
+  </div>
+  {% if page.cover %}
+  <div class="filter"></div>
+  <div class="post-cover"
+    style="background: url('{{ page.cover | relative_url }}') center no-repeat; background-size: cover;"></div>
+  {% endif %}
+</header>
+
+<!-- 检测内容过期 -->
+<script>
+  if (parseInt("{{ page.date | date: '%Y' }}") + 1 < year) {
+    document.getElementById("IfOld").style.display = "block";
+  }
+</script>
+
+<div class="post-content visible">
+  {% if page.subtitle %}
+  <h2 class="post-subtitle">{{ page.subtitle }}</h2>
+  {% endif %}
+
+  <article class="markdown-body">
+    {{ content }}
+  </article>
+
+
+
+  <section class="markdown-body">
+
+    <!-- ad block
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5266662380239421" data-ad-slot="9430046549"
+      data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    -->
+
+  </section>
+
+  {% if site.social-share %}
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+  {% endif %}
+</div>
+
+<section class="author-detail">
+  <section class="post-footer-item author-card">
+    <div class="avatar">
+      <img src="{{ site.avatar | relative_url }}" alt="">
+    </div>
+    <div class="author-name" rel="author">{{ site.author }}</div>
+    <div class="bio">
+      <p>{{ site.bio }}</p>
+    </div>
+    {% if site.sns.size > 0 %}
+    <ul class="sns-links">
+      {% for s in site.sns %}
+      <li>
+        <a href="{{ s[1] }}" target="_blank">
+          <i class="iconfont icon-{{ s[0] }}"></i>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </section>
+
+  {% include zanshang.html %}
+
+  <section class="post-footer-item read-next">
+    {% if page.next.url %}
+    <div class="read-next-item">
+      <a href="{{ page.next.url | relative_url }}" class="read-next-link"></a>
+      <section>
+        <span>{{ page.next.title }}</span>
+        <p>{{ page.next.excerpt | strip_html | strip_newlines | truncate: 60}}</p>
+      </section>
+      {% if page.next.cover %}
+      <div class="filter"></div>
+      <img src="{{ page.next.cover | relative_url }}" alt="">
+      {% else %}
+      <img src="{{ site.defaultcover | relative_url }}" alt="">
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if page.previous.url %}
+    <div class="read-next-item">
+      <a href="{{ page.previous.url | relative_url }}" class="read-next-link"></a>
+      <section>
+        <span>{{ page.previous.title }}</span>
+        <p>{{ page.previous.excerpt | strip_html | strip_newlines | truncate: 60}}</p>
+      </section>
+      {% if page.previous.cover %}
+      <div class="filter"></div>
+      <img src="{{ page.previous.cover | relative_url }}" alt="">
+      {% else %}
+      <img src="{{ site.defaultcover | relative_url }}" alt="">
+      {% endif %}
+    </div>
+    {% endif %}
+  </section>
+</section>

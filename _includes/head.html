@@ -1,0 +1,41 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% if page.title %}
+        {{ page.title }} - {{ site.title }}
+        {% else %}
+        {{ site.title }}
+        {% endif %}
+    </title>
+    <meta name="author" content="{{ site.author }}">
+    <meta name="description" content="{{ site.description }}">
+    <meta name="keywords" content="{{ site.keyword }}">
+    {% seo %}
+    <link rel="icon" type="image/png" href="{{ '/assets/img/logo.png' | relative_url }}">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1620146_xy3sm0fasus.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/prism/9000.0.1/themes/prism.min.css">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <!-- Head JavaScript -->
+    <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{ '/assets/js/eventGray.js' | relative_url }}"></script>
+    {% if site.mathjax %}
+    {% if page.mathjax %}
+    {% include mathjax.html %}
+    {% endif %}
+    {% endif %}
+
+    {% if site.plot %}
+    {% if page.plot %}
+    {% include plot.html %}
+    {% endif %}
+    {% endif %}
+
+    {% if site.cmplot %}
+    {% if page.cmplot %}
+    {% include chemplot.html %}
+    {% endif %}
+    {% endif %}
+</head>

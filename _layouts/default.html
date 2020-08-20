@@ -1,0 +1,17 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+<html>
+{% include head.html %}
+
+<body>
+    <div id="contentleft">
+        <input id="nm-switch" type="hidden" value="{{ site.nightMode }}">
+        {{ content }}
+        {% include footer.html %}
+    </div>
+    {% include script.html %}
+</body>
+</html>

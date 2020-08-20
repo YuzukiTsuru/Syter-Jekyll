@@ -1,0 +1,13 @@
+---
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset>
+    <url>
+    {% for post in site.posts %}
+        <loc>{{ site.baseurl }}{{ post.url | relative_url }}</loc>
+        <lastmod>{{ post.date | date: '%Y-%m-%d' }}</lastmod>
+    {% unless forloop.last %}
+    {% endunless %}
+    {% endfor %}
+    </url>
+</urlset>

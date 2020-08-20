@@ -1,0 +1,16 @@
+---
+title: Links
+layout: page
+---
+
+{% for link in site.data.link.links %}
+{% if link.status %}
+<h3>{{ link.name }}</h3>
+<a href="{{ link.link }}">{{ link.link }}</a>
+{% else %}
+<del>
+    <h3>{{ link.name }}</h3>
+</del>
+<del><a href="{{ link.link }}">{{ link.link }}</a></del>（不可访问）
+{% endif %}
+{% endfor %}

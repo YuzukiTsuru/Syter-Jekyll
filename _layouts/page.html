@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+{% include header.html %}
+
+<div class="g-banner tags-banner {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }}"
+    data-theme="{{ site.theme-color }}">
+    <h2>{{ page.title }}</h2>
+</div>
+
+<div class="post-content page-content visible">
+    <article class="markdown-body">
+        {{ content }}
+    </article>
+</div>
