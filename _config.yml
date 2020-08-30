@@ -6,7 +6,7 @@ keyword: "Blog"
 url: ""
 baseurl: "/Syter-Jekyll"  # 子目录，例如此deom是位于https://www.gloomyghost.com/Syter-Jekyll/而不是https://www.gloomyghost.com/
 
-defaultcover: /assets/img/profile.png
+defaultcover: https://open.saintic.com/api/bingPic/
 
 version: 0.3.1
 
