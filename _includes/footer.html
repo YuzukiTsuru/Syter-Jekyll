@@ -1,11 +1,15 @@
 {% include windyBack.html %}
 <footer class="g-footer">
   {% if site.beian %}
-  <section><small>{{ site.beianNum }}</small></section>
+  <section><small>{{ site.beian }}</small></section>
   {% endif %}
+
+  {% if site.hitokoto %}
   <section>
     <small id="hitokoto"></small>
   </section>
+  {% endif %}
+
   <section><small> {{ site.title }} ©
       {% assign current = "now" | date: "%Y" | plus: 0%}
       {% unless site.footer.since and site.footer.since == current %}
@@ -18,6 +22,7 @@
   <section>
     <small>Powered by <a href="//jekyllrb.com">Jekyll</a> | Last Commit :: {{ site.time | date_to_string }} VER ::
       {{ site.version }} | <a href="https://github.com/YuzukiTsuru/Syter-Jekyll">Theme Syter</a></small></section>
+
   <section>
     <small>
       According to relevant laws and regulations, this site does not provide services to EU users.

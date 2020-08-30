@@ -8,22 +8,27 @@ baseurl: ""
 
 defaultcover: /assets/img/profile.png
 
-version: 0.2
+version: 0.3.1
 
-# Navigation links
+# Navigation links 导航链接
 nav:
   home: "/"
   tags: "/page/tags"
   about: "/page/about"
   links: "/page/links"
 
-# Footer Since
+# Footer 创立日前
 footer:
-  since: 2014
+  since: 2020
 
-# 备案号
-beian: false
-beianNum: 
+# Funny Title
+funny_title: true
+
+# beian 备案号(没有备案就留空)
+beian: 
+
+# hitokoto url 一言地址
+hitokoto: https://v1.hitokoto.cn/?encode=js&select=%23hitokoto
 
 # Author 配置博主信息
 author: Your Name
@@ -31,19 +36,25 @@ nickname: Your Nickname
 bio: and your description
 avatar: "/assets/img/profile.png"
 
-# Search 搜索功能
+# Search
 search: true
 
-# Night mode 夜间模式
+# 赞赏
+zanshang: true
+
+# advertisement 广告
+ad: false
+
+# Night mode
 nightMode: false
 
 # MathJax
 mathjax: true
 
-# Math Plot 绘制数学图
+# Math Plot
 plot: true
 
-# Chem Plot  绘制化学方程式
+# Chem Plot 
 cmplot: true
 
 # Sass
@@ -67,9 +78,6 @@ sns:
   twitter: ""
   bilibili: ""
 
-# Permalink 链接格式
-permalink: /blog/:title.html
-
 # Tags 设置标签
 recommend-tags: true # whether or not display recommend-tags on the sidebar
 recommend-condition-size: 12 # a tag will be recommended if the size of it is more than this value
@@ -79,7 +87,7 @@ paginate: 10
 paginate_path: "page:num"
 exclude: [.gitignore', "README.md"]
 
-# Compress 压缩设置
+# Compress
 compress_html:
   clippings: all
   comments: ["<!-- ", " -->"]
@@ -90,14 +98,17 @@ compress_html:
   profile: false
   startings: [html, head, body]
 
-# Markdown MD解析器
+# Markdown
 markdown: kramdown
 highlighter: rouge
 kramdown:
   input: GFM
 
-# RSS 
+# RSS
 RSS: true
 
-# Plugins 插件
+# Permalink
+permalink: /live/:title.html
+
+# Plugins
 plugins: [jekyll-paginate]

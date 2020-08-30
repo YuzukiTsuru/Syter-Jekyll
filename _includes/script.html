@@ -1,4 +1,24 @@
-<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+{% if site.funny_title %}
+<script>
+    let titles = new Array();
+    titles[0] = "你找不到我(^ω^) - ";
+    titles[1] = "哎哟，崩溃啦 Σ(ﾟДﾟ;) - ";
+    titles[2] = "回来看看我嘛⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄ - ";
+    titles[3] = "嘤嘤嘤 (*´▽`*) - ";
+    let title = document.title,
+        hiddenProperty = "hidden" in document ? "hidden" : "webkitHidden" in document ? "webkitHidden" : "mozHidden" in document ? "mozHidden" : null,
+        visibilityChangeEvent = hiddenProperty.replace(/hidden/i, "visibilitychange"),
+        onVisibilityChange = function () {
+            let list = Math.round(Math.random() * 3);
+            document[hiddenProperty] ? document.title = titles[list] + title : document.title = title;
+        };
+    document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+</script>
+{% endif %}
+
+{% if site.hitokoto %}
+<script src="{{ site.hitokoto }}" defer></script>
+{% endif %}
 <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
 <script src="{{ '/assets/js/windyBack.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/prism.min.js' | relative_url }}"></script>

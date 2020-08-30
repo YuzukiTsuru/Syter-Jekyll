@@ -4,7 +4,7 @@
 <urlset>
     <url>
     {% for post in site.posts %}
-        <loc>{{ site.baseurl }}{{ post.url | relative_url }}</loc>
+        <loc>https://www.gloomyghost.com{{ post.url | relative_url }}</loc>
         <lastmod>{{ post.date | date: '%Y-%m-%d' }}</lastmod>
     {% unless forloop.last %}
     {% endunless %}
