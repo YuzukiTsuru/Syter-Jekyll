@@ -3,8 +3,8 @@ title: "HelloWorld"
 home-title: A Jekyll Powered Blog With Syter Theme
 description: Theme Syter
 keyword: "Blog"
-url: ""
-baseurl: ""
+url: "https://www.gloomyghost.com/Syter-Jekyll/"
+baseurl: "https://www.gloomyghost.com/Syter-Jekyll/"
 
 defaultcover: /assets/img/profile.png
 
